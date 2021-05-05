@@ -13,6 +13,10 @@ const syncServiceDetails = require('./src/sync_service_details');
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
+// allow your React app to make requests of this backend
+const cors = require('cors');
+app.use(cors());
+
 // Add body parser for Notify device registration
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
